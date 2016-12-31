@@ -62,8 +62,6 @@ func createFrame() {
 	w := 800
 	h := 500
 	img := image.NewRGBA(image.Rect(0, 0, w, h))
-	// pixels := [500][800]Color{}
-	// white := color.White
 	sphere := Sphere{Vec{float64(w) / 2, float64(h) / 2, 50}, 20.0}
 	tm := time.Now()
 	for y := 0; y < h; y++ {
@@ -72,8 +70,6 @@ func createFrame() {
 			ray := Ray{Vec{float64(x), float64(y), 0}, Vec{0, 0, 1}}
 			t := 20000.0
 			if sphere.Intersect(ray, &t) {
-				// Color the pixel
-				// pixels[y][x] = white
 				img.Set(x, y, color.Black)
 			}
 		}
@@ -84,6 +80,5 @@ func createFrame() {
 }
 
 func main() {
-	// fmt.Println(Vec{-6, 8, 0}.Dot(Vec{5, 12, 0}))
 	createFrame()
 }
