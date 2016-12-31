@@ -34,16 +34,18 @@ func createFrame() [w][h]Color {
 
 	// This demonstrates the use of wait groups to
 	tm := time.Now()
-	sections := 4
+	sections := 1
 	sw := w / sections
 	wg := sync.WaitGroup{}
-	wg.Add(sections)
-	for i := 0; i < sections; i++ {
-		x := sw * i
-		go iterate(&wg, &light, x, 0, x+sw, h, &spheres, &pixels)
+	for k := 0; k < 200; k++ {
+		wg.Add(sections)
+		for i := 0; i < sections; i++ {
+			x := sw * i
+			go iterate(&wg, &light, x, 0, x+sw, h, &spheres, &pixels)
+		}
+		wg.Wait()
 	}
-	wg.Wait()
-	fmt.Println(time.Since(tm))
+	fmt.Println(sections, (time.Since(tm) / 200))
 
 	return pixels
 }
