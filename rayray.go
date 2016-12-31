@@ -34,7 +34,7 @@ func createFrame() [w][h]Color {
 
 	// This demonstrates the use of wait groups to
 	tm := time.Now()
-	sections := 1
+	sections := 10
 	sw := w / sections
 	wg := sync.WaitGroup{}
 	for k := 0; k < 200; k++ {
@@ -169,7 +169,7 @@ func iterate(wg *sync.WaitGroup,
 
 	defer wg.Done()
 	white := Color{255, 255, 255}
-	green := Color{0, 255, 0}
+	green := Color{0, 150, 0}
 	for y := ay; y < by; y++ {
 		yf := float64(y)
 		for x := ax; x < bx; x++ {
@@ -190,8 +190,4 @@ func iterate(wg *sync.WaitGroup,
 			}
 		}
 	}
-}
-
-func init() {
-	rand.Seed(time.Now().UnixNano())
 }

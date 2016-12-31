@@ -6,15 +6,12 @@ This project demonstrates the use of WaitGroups and goroutines to divide and con
 
 | # Sections | CPU Load | #Threads | Time (ms)   |
 | ---------- | -------- | -------- | ----------- |
-| 1          | 100%     | 9        | ~ 159       |
-| 2          | 198%     | 9        | ~ 92        |
-| 5          | 337%     | 9        | ~ 180       |
-| 10         | 571%     | 9        | ~ 120       |
-| 20         | 617%     | 9        | ~ 120       |
+| 1          | 100%     | 9        | ~ 524       |
+| 2          | 198%     | 9        | ~ 275       |
+| 5          | 337%     | 9        | ~ 145       |
+| 10         | 571%     | 9        | ~ 145       |
+| 20         | 617%     | 9        | ~ 129       |
+| 50         | 733%     | 9        | ~ 127       |
 
 In the above, each frame is rendered 200 times and the average
-frame render time is recorded.  There was high variance between
-runs in the 5x range.  I chose the fastest times for recording,
-but the lack of performance consistency forces me to conclude
-the setup is not to be completely trusted; though it does
-represent a real world rig.
+frame render time is recorded.  
